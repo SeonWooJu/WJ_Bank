@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>잔액 조회</h3>
+	<form action="Check_balance.jsp" method="post">
+		개인코드 : <input type="text" size="10" maxlength="15" name="no">
+		<input type="submit" value="조회">
+	</form>
+	<h3>잔액 송금</h3>
+	<form action="Remittance">
+		계좌번호 : <input type="text" size="10" maxlength="15" name="ac"><br>
+		송금금액 : <input type="text" size="10" maxlength="15" name="me"><br>
+		<input type="submit" value="송금">
+	</form>
+</body>
+</html>
