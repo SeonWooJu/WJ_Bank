@@ -25,12 +25,12 @@
 	if (rs.next()) {
 		NUMBER = rs.getString("AC_NUMBER");
 	}
-		sql = "SELECT * FROM AC_INFO WHERE AC_NUMBER = ?";
+	sql = "SELECT * FROM AC_INFO WHERE AC_NUMBER = ?";
 
-		stmt = conn.prepareStatement(sql);
-		stmt.setString(1,NUMBER);
+	stmt = conn.prepareStatement(sql);
+	stmt.setString(1, NUMBER);
 
-		rs = stmt.executeQuery();
+	rs = stmt.executeQuery();
 %>
 <!DOCTYPE html>
 <html>
@@ -38,9 +38,10 @@
 <meta charset="UTF-8">
 <title>잔액조회</title>
 <style type="text/css">
-	#border{
-		border: 1px solid black;
-	}
+#border {
+	border: 1px solid black;
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -57,9 +58,9 @@
 			<tr>
 				<%
 					while (rs.next()) {
-							String AC_NUMBER = rs.getString("AC_NUMBER");
-							int HOLDING_AMOUNT = rs.getInt("HOLDING_AMOUNT");
-							int AC_TYPE = rs.getInt("AC_TYPE");
+						String AC_NUMBER = rs.getString("AC_NUMBER");
+						int HOLDING_AMOUNT = rs.getInt("HOLDING_AMOUNT");
+						int AC_TYPE = rs.getInt("AC_TYPE");
 				%>
 				<td id="border"><%=AC_NUMBER%></td>
 				<td id="border"><%=HOLDING_AMOUNT%></td>
