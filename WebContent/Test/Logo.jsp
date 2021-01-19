@@ -25,22 +25,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-#border {
+.border {
 	border: 1px solid black;
 	text-align: center;
 }
 </style>
 </head>
 <body>
-	<table id="border">
+	<table class="border">
 		<thead>
 			<tr>
-				<th id="border">거래 번호</th>
-				<th id="border">보내는 계좌</th>
-				<th id="border">받는 계좌</th>
-				<th id="border">거래 시간</th>
-				<th id="border">금액</th>
-				<th id="border">거래 방법</th>
+				<th class="border">거래 번호</th>
+				<th class="border">보내는 계좌</th>
+				<th class="border">받는 계좌</th>
+				<th class="border">거래 시간</th>
+				<th class="border">금액</th>
+				<th class="border">거래 방법</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,12 +54,12 @@
 					int TRANSACTION_METHOD = rs.getInt("TRANSACTION_METHOD");
 			%>
 			<tr>
-				<td id="border"><%=TRANSACTION_NUMBER%></td>
-				<td id="border"><%=AC_NUMBER_IN%></td>
-				<td id="border"><%=AC_NUMBER_OUT%></td>
-				<td id="border"><%=TRANSACTION_TIME%></td>
-				<td id="border"><%=MONEY%></td>
-				<td id="border"><%=TRANSACTION_METHOD%></td>
+				<td class="border"><%=TRANSACTION_NUMBER%></td>
+				<td class="border"><%=AC_NUMBER_IN%></td>
+				<td class="border"><%=AC_NUMBER_OUT%></td>
+				<td class="border"><%=TRANSACTION_TIME%></td>
+				<td class="border"><%=MONEY%></td>
+				<td class="border"><%=TRANSACTION_METHOD%></td>
 			</tr>
 			<%
 				}

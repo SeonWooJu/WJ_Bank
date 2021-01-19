@@ -38,7 +38,7 @@
 <meta charset="UTF-8">
 <title>잔액조회</title>
 <style type="text/css">
-#border {
+.border {
 	border: 1px solid black;
 	text-align: center;
 }
@@ -46,12 +46,12 @@
 </head>
 <body>
 
-	<table id="border">
+	<table class="border">
 		<thead>
 			<tr>
-				<th id="border">계좌번호</th>
-				<th id="border">보유금액</th>
-				<th id="border">계좌종류</th>
+				<th class="border">계좌번호</th>
+				<th class="border">보유금액</th>
+				<th class="border">계좌종류</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -62,9 +62,9 @@
 						int HOLDING_AMOUNT = rs.getInt("HOLDING_AMOUNT");
 						int AC_TYPE = rs.getInt("AC_TYPE");
 				%>
-				<td id="border"><%=AC_NUMBER%></td>
-				<td id="border"><%=HOLDING_AMOUNT%></td>
-				<td id="border"><%=AC_TYPE%></td>
+				<td class="border"><%=AC_NUMBER%></td>
+				<td class="border"><%=HOLDING_AMOUNT%></td>
+				<td class="border"><%=AC_TYPE%></td>
 				<%
 					}
 				%>
