@@ -26,6 +26,7 @@
            <h2><%=ac1 %>님 계좌에서 <%=ac2 %>님 계좌로</h2>
            <h2><%=num %>원</h2>
            <h2>이 송금되었습니다.</h2>
+           <a href="./index.jsp"><p id="button">금액조회</p></a>
         </div>
         <div id="footer">
             <h1>footer</h1>
