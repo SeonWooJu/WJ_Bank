@@ -19,7 +19,7 @@
             <div id="body_left">
                 <ul>
                     <li class="solid"></li>
-                    <li><a href="">이체</a></li>
+                    <li><a href="./transfer.html">이체</a></li>
                     <li class="solid"></li>
                     <li><a href="">예금가입</a></li>
                     <li class="solid"></li>

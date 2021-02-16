@@ -21,6 +21,6 @@ private static final long serialVersionUID = 1L;
 		response.setContentType("text/html;charset=UTF-8");
 		String AC_NUMBER = request.getParameter("AC_NUMBER");
 		response.getWriter().write(dao.User(AC_NUMBER));
-		System.out.println(dao.User("20501"));
+		System.out.println(dao.User(AC_NUMBER));
 	}
 }

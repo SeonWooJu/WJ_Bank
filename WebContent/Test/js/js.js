@@ -2,7 +2,7 @@ var request = new XMLHttpRequest();
 	function inquiry() {
 		request.open("Post", "./UserSearchServlet?AC_NUMBER="+encodeURIComponent("20501"), true);
 		request.onreadystatechange = searchProcess;
-		request.send(null);
+		//request.send(null);
 	} 
 	function searchProcess() {
 		var table = document.getElementById("money");
