@@ -3,7 +3,13 @@
 	pageEncoding="UTF-8"%>
 
 <%
-
+int USER_CODE = 0;
+try {
+	USER_CODE = (Integer) session.getAttribute("user_code");
+} catch (Exception e) {
+	out.println("<script>alert('(Erorr)로그인 후 이용가능한 서비스입니다.');</script>");
+	response.sendRedirect("./index.jsp");
+}
 %>
 
 <!DOCTYPE html>

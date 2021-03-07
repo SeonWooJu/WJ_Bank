@@ -1,9 +1,16 @@
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%	
-	int USER_CODE = 20501;
+	pageEncoding="UTF-8"%>
+
+<%
+	int USER_CODE = 0;
+	try {
+		USER_CODE = (Integer) session.getAttribute("user_code");
+	} catch (Exception e) {
+		out.println("<script>alert('(Erorr)로그인 후 이용가능한 서비스입니다.');</script>");
+		response.sendRedirect("./index.jsp");
+	}
+
 	int type = Integer.parseInt(request.getParameter("type"));
 	ResultSet rs = null;
 	PreparedStatement stmt = null;
@@ -34,7 +41,7 @@
 	stmt.setInt(2, type);
 
 	stmt.executeUpdate();
-	
+
 	sql = "INSERT INTO USER_AC VALUES(?,?)";
 
 	stmt = conn.prepareStatement(sql);
@@ -43,7 +50,7 @@
 
 	stmt.executeUpdate();
 %>
-    
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -61,9 +68,11 @@
 		<div id="body">
 			<h2><%=USER_CODE%>님의 계좌가 개설되었습니다
 			</h2>
-			<h2>계좌번호 : <%=AC_NUMBER%>
+			<h2>
+				계좌번호 :
+				<%=AC_NUMBER%>
 			</h2>
-			<h2> </h2>
+			<h2></h2>
 			<a href="./index.jsp"><p id="button">처음으로</p></a>
 		</div>
 		<div id="footer">
