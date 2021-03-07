@@ -7,6 +7,7 @@
 	String mm = "";
 	String logoin1 = "";
 	String logoin2 = "";
+	String transfer = "",product = "",List = "",join = "",guide = "";
 	try {
 		USER_CODE = (Integer) session.getAttribute("user_code");
 	} catch (Exception e) {
@@ -16,6 +17,11 @@
 		mm = "로그인 후 조회 가능합니다";
 		logoin1 = "./Login.jsp";
 		logoin2 = "로그인";
+		transfer = "./error.jsp";
+		product = "./error.jsp";
+		List = "./error.jsp";
+		join = "./error.jsp";
+		guide = "./error.jsp";
 	}else {
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -43,6 +49,11 @@
 		mm = HOLDING_AMOUNT+"원";
 		logoin1 = "./logout.jsp";
 		logoin2 = "로그아웃";
+		transfer = "./transfer.jsp";
+		product = "./product.jsp";
+		List = "./List.jsp";
+		join = "./join.jsp";
+		guide = "./guide.jsp";
 	}
 %>
 
@@ -64,11 +75,11 @@
 			<div id="body_left">
 				<ul>
 					<li class="solid"></li>
-					<li><a href="./transfer.jsp">이체</a></li>
+					<li><a href="<%=transfer %>">이체</a></li>
 					<li class="solid"></li>
-					<li><a href="./product.jsp">상품가입</a></li>
+					<li><a href="<%=product %>">상품가입</a></li>
 					<li class="solid"></li>
-					<li><a href="./List.jsp">거래내역</a></li>
+					<li><a href="<%=List %>">거래내역</a></li>
 					<li class="solid"></li>
 				</ul>
 			</div>
@@ -84,9 +95,9 @@
 					<li class="solid"></li>
 					<li><a href="<%=logoin1 %>"><%=logoin2 %></a></li>
 					<li class="solid"></li>
-					<li><a href="./join.jsp">회원가입</a></li>
+					<li><a href="<%=join %>">회원가입</a></li>
 					<li class="solid"></li>
-					<li><a href="">이용안내</a></li>
+					<li><a href="<%=guide %>">이용안내</a></li>
 					<li class="solid"></li>
 				</ul>
 			</div>
