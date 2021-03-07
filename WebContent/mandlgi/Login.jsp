@@ -1,12 +1,7 @@
-<%@page import="transfer.user"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int ac2 = Integer.parseInt(request.getParameter("ac2"));
-	int num = Integer.parseInt(request.getParameter("num"));
-	int ac1 = Integer.parseInt(request.getParameter("ac1"));
-	user u = new user(ac1, ac2, num);
-	u.DB();
+	
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,16 +18,16 @@
 			<h1>WJ BANK - 우주 은행</h1>
 		</div>
 		<div id="body">
-			<h2><%=ac1%>님 계좌에서
-				<%=ac2%>님 계좌로
-			</h2>
-			<h2><%=num%>원
-			</h2>
-			<h2>이 송금되었습니다.</h2>
-			<a href="./index.jsp"><p id="button">처음으로</p></a>
+			<h1>로그인</h1>
+			<form action="Login_2.jsp" method="post">
+				<input id="input" type="text" name="id" placeholder="아이디">
+				<br><br>
+				<input id="input" type="password" name="pw" placeholder="비밀번호">
+				<input id="button_2" type="submit" value="로그인">
+			</form>
 		</div>
 		<div id="footer">
-			<h1>footer</h1>
+			<h1>footer임</h1>
 		</div>
 	</div>
 </body>

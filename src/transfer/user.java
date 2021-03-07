@@ -3,11 +3,11 @@ package transfer;
 import java.sql.*;
 
 public class user {
-	private String ac1 = "";
-	private String ac2 = "";
+	private int ac1 = 0;
+	private int ac2 = 0;
 	private int num = 0;
 
-	public user(String ac1, String ac2, int num) {
+	public user(int ac1, int ac2, int num) {
 		this.ac1 = ac1;
 		this.ac2 = ac2;
 		this.num = num;
@@ -30,7 +30,7 @@ public class user {
 			sql = "SELECT HOLDING_AMOUNT FROM AC_INFO WHERE AC_NUMBER = ?";
 
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, ac1);
+			stmt.setInt(1, ac1);
 
 			rs = stmt.executeQuery();
 
@@ -42,14 +42,14 @@ public class user {
 
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, (HOLDING_AMOUNT - num));
-			stmt.setString(2, ac1);
+			stmt.setInt(2, ac1);
 
 			stmt.executeUpdate();
 
 			sql = "SELECT HOLDING_AMOUNT FROM AC_INFO WHERE AC_NUMBER = ?";
 
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, ac2);
+			stmt.setInt(1, ac2);
 
 			rs = stmt.executeQuery();
 
@@ -60,15 +60,15 @@ public class user {
 
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, (HOLDING_AMOUNT + num));
-			stmt.setString(2, ac2);
+			stmt.setInt(2, ac2);
 
 			stmt.executeUpdate();
 
 			sql = "INSERT INTO AC_TRADE VALUES((select nvl(max(TRANSACTION_NUMBER),0) + 1 from AC_TRADE),?,?,TO_CHAR(SYSDATE,'YYYY/MM/DD HH24:MI:SS'),?,1)";
 
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, ac1);
-			stmt.setString(2, ac2);
+			stmt.setInt(1, ac1);
+			stmt.setInt(2, ac2);
 			stmt.setInt(3, num);
 
 			stmt.executeUpdate();

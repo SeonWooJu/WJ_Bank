@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 
 <%
+	int USER_CODE = 20501;
 	ResultSet rs = null;
 	PreparedStatement stmt = null;
 	String sql = "";
@@ -14,9 +15,12 @@
 	String pw = "20509";
 	Connection conn = DriverManager.getConnection(url, id, pw);
 
-	sql = "SELECT * FROM USER_AC WHERE USER_CODE = 20501";
+	sql = "SELECT a.AC_NUMBER AS AC_NUMBER, A.HOLDING_AMOUNT AS HOLDING_AMOUNT "+
+			"FROM USER_AC U, AC_INFO A "+
+			"WHERE U.AC_NUMBER = A.AC_NUMBER AND U.USER_CODE = ?";
 
 	stmt = conn.prepareStatement(sql);
+	stmt.setInt(1, USER_CODE);
 
 	rs = stmt.executeQuery();
 	
@@ -47,9 +51,10 @@
 				<option value="">송금 계좌선택</option>
 				<%
 					while (rs.next()) {
-						String AC_NUMBER = rs.getString("AC_NUMBER");
+						int AC_NUMBER = rs.getInt("AC_NUMBER");
+						int HOLDING_AMOUNT = rs.getInt("HOLDING_AMOUNT");
 				%>
-					<option value="<%=AC_NUMBER %>"><%=AC_NUMBER %></option>
+					<option value="<%=AC_NUMBER %>"><%=AC_NUMBER %> (잔액:<%=HOLDING_AMOUNT %>)</option>
 				<%
 					} 
 				%> 
