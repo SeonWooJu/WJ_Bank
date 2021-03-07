@@ -68,7 +68,7 @@
 					<li class="solid"></li>
 					<li><a href="./product.jsp">상품가입</a></li>
 					<li class="solid"></li>
-					<li><a href="./List.jsp">거래내역</a></li>
+					<li><a href="./List.jsp">MY계좌</a></li>
 					<li class="solid"></li>
 				</ul>
 			</div>

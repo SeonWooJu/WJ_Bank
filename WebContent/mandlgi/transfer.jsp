@@ -21,8 +21,8 @@
 	String pw = "20509";
 	Connection conn = DriverManager.getConnection(url, id, pw);
 
-	sql = "SELECT a.AC_NUMBER AS AC_NUMBER, A.HOLDING_AMOUNT AS HOLDING_AMOUNT " + "FROM USER_AC U, AC_INFO A "
-			+ "WHERE U.AC_NUMBER = A.AC_NUMBER AND U.USER_CODE = ? ORDER BY AC_NUMBER DESC";
+	sql = "SELECT a.AC_NUMBER AS AC_NUMBER, A.HOLDING_AMOUNT AS HOLDING_AMOUNT FROM USER_AC U, AC_INFO A "
+			+ "WHERE U.AC_NUMBER = A.AC_NUMBER AND U.USER_CODE = ? AND AC_TYPE = 1 ORDER BY AC_NUMBER DESC";
 
 	stmt = conn.prepareStatement(sql);
 	stmt.setInt(1, USER_CODE);

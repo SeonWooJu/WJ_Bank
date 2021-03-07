@@ -20,7 +20,8 @@
 	String pw = "20509";
 	Connection conn = DriverManager.getConnection(url, id, pw);
 	
-	sql = "SELECT a.AC_NUMBER AS AC_NUMBER, A.HOLDING_AMOUNT AS HOLDING_AMOUNT " + "FROM USER_AC U, AC_INFO A "
+	sql = "SELECT a.AC_NUMBER AS AC_NUMBER, A.HOLDING_AMOUNT AS HOLDING_AMOUNT, "
+			+ "DECODE(AC_TYPE,'1','예금','2','적금') AS AC_TYPE FROM USER_AC U, AC_INFO A "
 			+ "WHERE U.AC_NUMBER = A.AC_NUMBER AND U.USER_CODE = ? ORDER BY AC_NUMBER DESC";
 	
 	stmt = conn.prepareStatement(sql);
@@ -51,8 +52,9 @@
 							while (rs.next()) {
 								int AC_NUMBER = rs.getInt("AC_NUMBER");
 								int HOLDING_AMOUNT = rs.getInt("HOLDING_AMOUNT");
+								String AC_TYPE = rs.getString("AC_TYPE");
 						%>
-						<option value="<%=AC_NUMBER%>"><%=AC_NUMBER%> (잔액:<%=HOLDING_AMOUNT%>)</option>
+						<option value="<%=AC_NUMBER%>"><%=AC_TYPE %> : <%=AC_NUMBER%> (잔액:<%=HOLDING_AMOUNT%>)</option>
 						<%
 							}
 						%>
